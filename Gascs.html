@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gascs</title>
+  <style>
+    :root {
+      --metal-base: #c0c0c0;
+      --metal-highlight: #ffffff;
+      --metal-shadow: #808080;
+      --bg-gradient: linear-gradient(-45deg, #2c3e50, #4ca1af, #000000);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      background-size: 400% 400%;
+      animation: bgMove 20s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #bbb;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding-top: 5rem;
+    }
+
+    .logo {
+      font-size: 10vw;
+      font-weight: 900;
+      background: linear-gradient(120deg, var(--metal-highlight), var(--metal-base), var(--metal-shadow));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: liquidMetal 6s ease-in-out infinite;
+      filter: url(#metalFilter);
+      text-shadow:
+        0 0 5px rgba(255,255,255,0.3),
+        0 0 10px rgba(255,255,255,0.2),
+        0 2px 4px rgba(0,0,0,0.6);
+    }
+
+    @keyframes liquidMetal {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .section {
+      padding: 5rem 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(255,255,255,0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.95rem;
+    }
+
+    .contact-icons {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-icons a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .contact-icons a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.2);
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 14vw;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <svg style="height: 0;">
+    <filter id="metalFilter">
+      <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="2" result="turbulence" />
+      <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="20" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <div id="particles-js"></div>
+
+  <header>
+    <div style="font-weight:bold; font-size: 1.3rem;">Gascs</div>
+    <nav>
+      <a href="#about">关于我</a>
+      <a href="#contact">联系我</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="logo" style="font-family: 'Poppins', 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -1px;">gascs</div>
+    <p style="margin-top: 1rem; font-size: 1.2rem; font-style: italic;">永远不要止步不前，旅途没有终点...</p>
+  </section>
+
+  <section id="about" class="section">
+    <h2>关于我</h2>
+    <p>嘿！这里是Gascs，一个刚入门的开发者，希望以后能有许多有趣的作品.</p>
+    <div class="skills">
+      <div class="skill-tag">HTML</div>
+      <div class="skill-tag">CSS</div>
+      <div class="skill-tag">C++</div>
+      <div class="skill-tag">UI 设计</div>
+      <div class="skill-tag">OpenGL</div>
+      <div class="skill-tag">Web 动画</div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>联系我</h2>
+    <div class="contact-icons">
+      <a href="mailto:gascs@qq.com">📧 gascs@qq.com</a>
+      <a href="https://github.com/gascs" target="_blank">🌐 GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Gascs. Keep building, keep learning.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        move: { enable: true, speed: 1 }
+      }
+    });
+  </script>
+</body>
+</html>
